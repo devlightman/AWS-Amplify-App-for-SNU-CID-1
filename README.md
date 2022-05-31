@@ -1,3 +1,5 @@
+<p align="center"><img src="https://user-images.githubusercontent.com/20808296/171095443-d6be395a-19b4-44df-b556-1fb9d9147da6.png"></p>
+
 # AWS Amplify Serverless App for SNU Creative Integrated Design 1
 
 This is the code repository of Team S for [Creative Integrated Design 1](http://dcslab.snu.ac.kr/courses/2021f/project/). This project aims to implement a cross-platform hybrid serverless mobile app for art class teachers and students based on Amazon Web Services (AWS); in particular, AWS Amplify.
