@@ -1,0 +1,90 @@
+.feed-user-avatar {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.feed-header {
+  padding: 0;
+}
+
+.feed-username {
+  margin-left: 8px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.feed-image {
+  padding: 0;
+  background-color: #ddd;
+  height: 43vw;
+}
+
+.feed-control {
+  padding: 8px;
+}
+
+.feed-comment {
+  margin: 0;
+  width: 100%;
+}
+
+.preview-slides {
+    margin-top: 20%;
+    background: #e6e6e6;
+}
+.preview-slides img {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+.image-slide, .image-card {
+    overflow: visible;
+}
+
+.modal-transparency {
+    --background: transparent !important;
+}
+
+.modal-transparency  .scroll-content {
+    overflow-y: hidden;
+}
+
+.modal-transparency .sliderrr {
+    height: 100% !important;
+}
+
+.modal-transparency .footer {
+    margin-bottom: 10px;
+}
+
+.modal-transparency .btn {
+    --background: rgba(0, 0, 0, 0.14);
+    --box-shadow : none;
+}
+
+.imgwrapper {
+    width: 100vw;
+    height: 43vw;
+    overflow: hidden;
+}
+
+.imgwrapper img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.like {
+
+  --ripple-color: transparent;
+  --background:transparent;
+  --background-activated: transparent;
+  --background-focused: transparent;
+  --background-hover: transparent;
+
+  --background-activated-opacity: 0;
+  --background-focused-opacity: 0;
+  --background-hover-opacity: 0;
+  --transition: none;
+
+
+}

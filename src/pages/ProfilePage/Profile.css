@@ -1,0 +1,15 @@
+.top {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  color: white;
+  padding-bottom: 1rem;
+}
+
+.avatar {
+  width: 7rem;
+  height: 7rem;
+  border: 5px solid rgba(218, 223, 208, 0.4);
+}
