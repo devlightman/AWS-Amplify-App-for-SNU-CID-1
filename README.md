@@ -100,3 +100,268 @@ Because the concept of AWS Cloud based serverless backend is adopted, the config
 Due to the utilization of MVVM design paradigm, the most important logics are implemented in each ViewModels. Views are only for drawing UI and Models are only for data storage. Furthermore, most components does not have any logic after creation and initialization, and because of the functional programming paradigm, each component is a callable object with most of its CRUD logics wrapped in. Thus, only some of the key functions in ViewModels are listed.
 
 ### AuthViewModel
+  1. const isUsernameValis = (username: string): boolean
+     Verify whether the coming username is in valid form.
+  2. const isPasswordValid = (password: string): boolean
+     Verify whether the coming password is in valid form.
+  3. const signUp = async (username: string, password: string)
+     Sign up a new user with provided credential.
+  4. const confirm = async (username: string, password: string, code: string)
+     Send the user credential with the verification code, will confirm the account if correct.
+  5. const onSubmit = async (username: string, password: string)
+     Submit the user credential and try to login.
+ 
+### FeedViewModel
+ ### a. ArtworkModal
+ 
+   1. const tryLike =
+   
+      Try to like current shown artwork. If the current user already likes it, cancel the like.
+ 
+ ### ClassViewModel
+  ### a. ClassItemModal
+   1. const setShowClassDetails = shouldSho w: boolean
+   
+      Show the class details when interacted with.
+    
+  ### b. ClassDetailsItemModal
+   1. const setAddAssignment = should Add: bo olean
+   
+      Enter add assignment interface when interacted with.
+  
+  ### c. AddAssignmentModal
+   1. const setDescription = description: string
+   
+      Set the description for an assignment.
+   2. const set StartTime = startTime: strin g
+   
+      Set the start time of an assignment.
+   3. const setDeadline = deadline: string
+   
+      Set the deadline of an assignment.
+      
+ ### ProfileViewModel
+   1. const signOut = async ()
+   
+      Sign out the current user.
+  
+  ### ProfileEditModal
+   1. const getPhoto = async (sourceStr: string, shouldCrop: boolean)
+   
+      Get a photo for user avatar from specified source.
+ 
+ ### ArtWorkStore
+   1. updateArtWorkGrade = async (artwork: Artwork, grade: number) => {}
+   
+      Update the grade of the given artwork.
+      
+ ### CommentStore
+   1. constructor(rootStore: RootStore) {}
+   
+      Calls initialize() to initialize the store. User autorun() to listen to any possible changes that should trigger update in the values in the store.
+   2. Initialize = async () => {}
+   
+      Fetch comments from the backend datastore.
+   3. addComment = async (artwork: ArtWork, message: string) => {}
+   
+      Add a comment to the backend datastore.
+   4. deleteComment = async (artwork: ArtWork, comment: Comment) => {}
+   
+      Delete a comment from the backend datastore.
+   5. updateComment = async (artwork: ArtWork, comment: Comment) => {}
+   
+      Update a comment and upload to the backend datastore
+      
+ ### UserStore
+   1. federatedLogIn = (provider: string) => {}
+   
+      Implement sign in using social media accounts
+      
+## [Appendix B] User Manual
+
+The distributed product of this project is an android installation pack file (.apk). Clicking on the installation file will trigger the system installation process. Follow the instruction given by the OS to complete installing.
+After installation, an icon should show up in the launcher, click the icon to start the app. The instructions for different screens of the app are shown as follow.
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093261-4a13d377-2066-4933-8d41-f1967b365b01.png)
+[First Screen]
+
+① Log in with a Google account on device
+
+② Create an account for a new user to sign up
+
+③ Log in with an existing account (Login with 3rd party apps is currently not supported)
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093315-c2775ef4-b6a5-4b2f-9fff-e7932d5ed2dc.png)
+[Sign Up Screen]
+
+① Enter the email address bind with the new account
+
+② Enter the password (must be combination of Upper-case letters, smaller case letters and numbers)
+
+③ Repeat the password
+
+④ Select the role between student account and teacher account
+
+⑤ With all information correctly entered, sign up new account
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093356-e84f3145-50e0-4e70-9c61-b293475df9f9.png)
+[Log In Screen]
+
+① Enter the email address
+
+② Enter the password of the account
+
+③ With all information correctly entered, log in with the provided account
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093380-de170ef7-6bfd-4c0a-85e2-00be469a58df.png)
+[Feed Screen]
+
+① Tab here to enter the Feed page (default)
+
+② Tab to enter Class page
+
+③ Tab to enter Profile page
+
+④ Current page location
+
+⑤ Artwork uploaded by other users
+
+⑥ Like button to show whether you like this artwork (tap again to cancel)
+
+⑦ Type your comment here to express your feelings
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093428-35afaad4-e3b9-486b-bb81-14ceed6cc15a.png)
+[Class Screen]
+
+① List of currently attending classes, tab to show the details and assignments of this class
+
+② Tab to create a new class (or search for a class if using a student account)
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093466-b862150a-a58a-47d9-ba8e-f917dc4ff9e6.png)
+[Class Details Screen]
+
+① Tab here to return to previous screen
+
+② Title of the class
+
+③ Class description
+
+④ List of uploaded assignments, tab to show details (red circle for an overdue assignment)
+
+⑤ Upcoming assignment, tab to show details
+
+
+![image](https://user-images.githubusercontent.com/20808296/171092636-772fbd23-b50e-4ef7-9fdc-0cca6121da1d.png)
+[Assignment Details Screen]
+
+① Tab here to return to previous screen
+
+② Assignment name
+
+③ Assignment description
+
+④ Assignment deadline
+
+⑤ Submission condition of the assignment
+
+⑥ Tab here to expand submission menu
+
+
+![image](https://user-images.githubusercontent.com/20808296/171092660-09d8c11a-7463-4cc3-87da-b5f7763a5889.png)
+[Assignment Details Screen - Menu Expanded]
+
+① Take a photo using camera
+
+② Select a picture from gallery
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093647-5f82a430-3243-4c01-8510-fa3cf7d05636.png)
+[Assignment Details Screen (Teacher)]
+
+① Tab here to return to previous screen
+
+② Assignment name
+
+③ Assignment description
+
+④ Uploaded artwork from students
+
+⑤ Tab here to grade the student’s work
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093826-15a9811a-f56f-482d-acf3-aced274bad6e.png)
+[Assignment Details Screen (Teacher Grading)]
+
+① Enter the grade for this student’s work
+
+② Cancel or confirm the grading
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093903-01aa8e8c-4ea2-46ca-9383-39e73a6db27d.png)
+[Class Search Screen]
+
+① Tab here to return to previous screen
+
+② Enter the keywords to search for relevant classes
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093941-9bd1864b-8d63-448c-83bc-5d49529dc2d9.png)
+[Class Creation Screen]
+
+① Tab here to return to previous screen
+
+② Enter the name for the new class
+
+③ Enter the class description
+
+④ Tab here to confirm creating the class
+
+
+![image](https://user-images.githubusercontent.com/20808296/171093991-bdc0bcf2-90e5-4aa4-9230-15152b38526b.png)
+[Assignment Creation Screen]
+
+① Tab here to cancel the creation
+
+② Enter the description for this assignment
+
+③ Enter the start time that students can submit works
+
+④ Enter the deadline for the assignment
+
+⑤ Confirm adding the assignment
+
+
+![image](https://user-images.githubusercontent.com/20808296/171094065-63eb4efb-4742-4d9d-b9fb-b83abf8d86ac.png)
+[Assignment Start/End Time Edit Screen]
+
+① Slide the slider to select correct time
+
+② Cancel or confirm the time editting
+
+
+![image](https://user-images.githubusercontent.com/20808296/171092724-1039beb0-b1cf-4e01-8f94-82be707e0c1c.png)
+[Profile Screen]
+
+① The username for current user
+
+② Avatar for the current user, tab to edit
+
+③ Tab to log out the current account
+
+④ Tab to see the client build number
+
+
+![image](https://user-images.githubusercontent.com/20808296/171094152-ff86ff99-b8db-4a21-9209-13ebbe0101ce.png) 
+[Avatar Edit Screen]
+
+① Tab here to return to previous screen
+
+② Preview of the current user avatar
+
+③ Tab to see the expand menu for uploading new avatar, a pop-up window will show up for choosing from gallery or taking a photo
